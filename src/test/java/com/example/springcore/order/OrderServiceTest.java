@@ -15,6 +15,7 @@ public class OrderServiceTest {
     @Test
     void createOrder(){
 
+
         // 기본형은 Null을 넣을 수 없다
         Long memberId = 1L;
         Member member = new Member(memberId, "memberA", Grade.VIP);
