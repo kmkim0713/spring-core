@@ -11,7 +11,7 @@ public class MemberApp {
         Member member = new Member(1L, "memberA", Grade.VIP); // new 자동완성 cmd + option + v
         memberService.join(member);
 
-        Member findMember = memberService.findByMember(1L);
+        Member findMember = memberService.findMember(1L);
         System.out.println("new Member = " + member.getName());
         System.out.println("findMember = " + findMember.getName());
 
