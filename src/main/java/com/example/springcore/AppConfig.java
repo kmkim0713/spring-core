@@ -8,24 +8,31 @@ import com.example.springcore.member.MemberServiceImpl;
 import com.example.springcore.member.MemoryMemberRepository;
 import com.example.springcore.order.OrderService;
 import com.example.springcore.order.OrderServiceImpl;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
+
+@Configuration
 public class AppConfig {
 
-    // 생성자 주입
 
+    @Bean
     public MemberService memberService() {
         return new MemberServiceImpl(getMemberRepository());
     }
 
     // cmd + option + m 으로 (new 객체())를 get 함수로 만들 수 있음
-    private MemoryMemberRepository getMemberRepository() {
+    @Bean
+    public MemoryMemberRepository getMemberRepository() {
         return new MemoryMemberRepository();
     }
 
+    @Bean
     public OrderService orderService() {
         return new OrderServiceImpl(getMemberRepository(), discountPolicy());
     }
 
+    @Bean
     public DiscountPolicy discountPolicy() {
 //        return new FixDiscountPolicy();
         return new RateDiscountPolicy();
