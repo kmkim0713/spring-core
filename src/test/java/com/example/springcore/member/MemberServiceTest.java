@@ -1,11 +1,21 @@
 package com.example.springcore.member;
 
+import com.example.springcore.AppConfig;
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class MemberServiceTest {
 
-    MemberService memberService = new MemberServiceImpl();
+    MemberService memberService;
+
+
+    // 각 테스트를 실행하기전에 사전에 실행하는 코드
+    @BeforeEach
+    public void beforeEach(){
+        AppConfig appConfig = new AppConfig();
+        memberService = appConfig.memberService();
+    }
 
     @Test  // given - when - then을 생각하자
     void join(){
